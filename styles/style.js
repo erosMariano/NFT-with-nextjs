@@ -9,11 +9,24 @@ export const MainHome = styled.main`
 	padding-left: 150px;
 
 	display: flex;
+
+	@media (max-width: 1127px) {
+		flex-direction: column;
+		align-items: center;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
 `;
 
 export const HomeContainer = styled.section`
 	padding-top: 50px;
 	padding-bottom: 50px;
+
+	@media (max-width: 1127px) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 `;
 
 export const HomeContainer__Header = styled.h1`
@@ -70,15 +83,40 @@ export const HomeContainer__TitleContainer = styled.div`
 		margin-top: 68px;
 		font-family: Roboto;
 		width: 650px;
+		@media (max-width: 660px) {
+			width: 90%;
+			margin-left: auto;
+			margin-right: auto;
+		}
 	}
 
 	@media (max-width: 1550px) {
-		h2{
-			font-size: 50px
+		h2 {
+			font-size: 50px;
 		}
 
-		p{
+		p {
 			margin-top: 30px;
+		}
+	}
+
+	@media (max-width: 1127px) {
+		width: 100%;
+		text-align: center;
+		p {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	@media (max-width: 660px) {
+		h2 {
+			font-size: 35px;
+			line-height: 41px;
+		}
+
+		h3{
+			font-size:13px;
 		}
 	}
 `;
@@ -230,4 +268,32 @@ export const HomeContainer__Quantity = styled.div`\
 
 		color: rgba(255, 255, 255, 0.54);
 	}
+
+	@media (max-width: 660px) {
+		width: 90%;
+		margin-left:auto;
+		margin-right:auto;
+		flex-direction: column;
+
+
+		.borderLareterais {
+			margin-top: 30px;
+			margin-bottom: 30px;
+		&::before {
+			content: "";
+			position: absolute;
+			left: 35px;
+			bottom: -15px;
+			transform: rotate(0deg);
+		}
+
+		&::after {
+			left: 35px;
+			bottom: 100px;
+			transform: rotate(0deg);
+		}
+	}
+	}
+
+
 `;

@@ -1,6 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import Tilt from "react-tilt";
+import styled from "styled-components";
 import CardHome from "../components/CardHome";
 import {
 	MainHome,
@@ -10,7 +13,18 @@ import {
 	HomeContainer__Button,
 	HomeContainer__Quantity,
 } from "../styles/style";
+
 export default function Home() {
+
+	const [tiltWidth, setTiltWidth] = useState(541);
+
+	useEffect(() => {
+		if (window.innerWidth <= 541) {
+			setTiltWidth(300);
+		} else {
+			setTiltWidth(541);
+		}
+	}, []);
 	return (
 		<MainHome>
 			<Head>
@@ -42,12 +56,18 @@ export default function Home() {
 					</p>
 				</HomeContainer__TitleContainer>
 
-				<HomeContainer__Button>VER COLEÇÃO</HomeContainer__Button>
+				<Link
+					href="/collections/0x41f1bFaDDd69b6655ad4909C37E68A1b488f4400"
+					passHref
+					style={{ cursor: "pointer" }}
+				>
+					<HomeContainer__Button>VER COLEÇÃO</HomeContainer__Button>
+				</Link>
 
 				<Tilt
 					className="Tilt"
 					options={{ max: 25 }}
-					style={{ height: 173, width: 541 }}
+					style={{ height: 173, width: tiltWidth }}
 					easing="cubic-bezier(.03,.98,.52,.99)"
 				>
 					<HomeContainer__Quantity>

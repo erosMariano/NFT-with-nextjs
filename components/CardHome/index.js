@@ -12,7 +12,7 @@ function CardHome() {
 	return (
 		<ContainerCard>
 			<ContainerCard__Button>
-				<Link href="/teste">
+				<Link href="/collections/0x41f1bFaDDd69b6655ad4909C37E68A1b488f4400">
 					<a>Ver coleção</a>
 				</Link>
 			</ContainerCard__Button>
@@ -56,7 +56,7 @@ function CardHome() {
 					<div>
 						<p>100 ETHICON #01</p>
 						<p className="ContainerCard__Informations--ciano">
-						1.00 ETH
+							1.00 ETH
 						</p>
 					</div>
 
@@ -64,11 +64,8 @@ function CardHome() {
 						<Link href="/">
 							<a>Eros Mariano</a>
 						</Link>
-						<p>
-							$3,618.36
-						</p>
+						<p>$3,618.36</p>
 					</div>
-
 
 					<div>
 						<Link href="/">

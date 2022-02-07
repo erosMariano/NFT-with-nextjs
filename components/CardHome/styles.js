@@ -11,6 +11,19 @@ export const ContainerCard = styled.aside`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	@media (max-width: 1127px) {
+		width: 541px;
+		margin-top:40px;
+	}
+
+	@media (max-width: 660px) {
+		width: 90%;
+		margin-left:auto;
+		margin-right:auto;
+		margin-top: 288px;
+    	margin-bottom: 50px;
+	}
 `;
 
 export const ContainerCard__Button = styled.div`
@@ -216,10 +229,10 @@ export const ContainerCard__Informations = styled.div`
 		}
 
 		div:nth-child(3) {
-			a{
+			a {
 				width: 100px;
 				font-size: 12px;
 			}
-		} 
+		}
 	}
 `;
