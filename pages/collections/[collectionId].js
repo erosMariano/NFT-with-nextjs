@@ -10,6 +10,9 @@ import NFTCard from "../../components/NFTCard";
 import Link from "next/link";
 import Image from "next/image";
 
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 function Collection() {
 	//Connect ======================================
 	const { address, connectWallet } = useWeb3();
@@ -138,9 +141,11 @@ function Collection() {
 						<CollectionMain__NFTS>
 							<ContainerBanner
 								background={
-									collection?.bannerImageUrl
-										? collection.bannerImageUrl
-										: "https://via.placeholder.com/200"
+									collection?.bannerImageUrl ? (
+										collection.bannerImageUrl
+									) : (
+										<Skeleton baseColor="#6C6C6C" />
+									)
 								}
 							>
 								<h2>Criar seu NFT Supersonico!</h2>
@@ -167,9 +172,9 @@ function Collection() {
 									width={200}
 									height={200}
 									src={
-										collection?.imageUrl
-											? collection.imageUrl
-											: "https://via.placeholder.com/200"
+										collection?.imageUrl ? (
+											collection.imageUrl
+										) : "https://via.placeholder.com/200"
 									}
 									alt="Perfil usuário NFT"
 								/>
@@ -400,27 +405,27 @@ export const CollectionMain__Creator__Buttons = styled.div`
 		border-radius: 20px;
 	}
 
-	.like, .reticencias{
+	.like,
+	.reticencias {
 		background: rgba(255, 255, 255, 0.1);
 		display: flex;
 		align-items: center;
-		justify-content:center;
+		justify-content: center;
 		padding: 10px 10px;
 		border-radius: 50%;
-
 	}
-	.reticencias{
-		height:40px;
-		width:40px;
+	.reticencias {
+		height: 40px;
+		width: 40px;
 	}
-	.reticencias span{
+	.reticencias span {
 		width: 5px;
 		height: 5px;
 		background: rgba(255, 255, 255, 0.2);
 		border-radius: 50%;
-		margin: 1px
+		margin: 1px;
 	}
-	width: 50%;
+	width: 200px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;

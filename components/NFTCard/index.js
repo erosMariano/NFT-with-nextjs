@@ -1,15 +1,20 @@
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+
+
 import Skeleton from "react-loading-skeleton";
 import styled from "styled-components";
+
+
 
 function NFTCard({ nftItem, listings }) {
 	const [isListed, setIsListed] = useState(false);
 	const [price, setPrice] = useState(0);
 
-  const Router = useRouter();
+	const Router = useRouter();
 
 	useEffect(() => {
 		const listing = listings.find(
@@ -23,27 +28,39 @@ function NFTCard({ nftItem, listings }) {
 	}, [nftItem, listings]);
 
 	return (
-		<Container>
-			<Containe__IMG>
-				<Image src={nftItem.image} alt="NFT" width={100} height={100} />
-				<div>
-					<h2>Preço</h2>
-					<h3>{price} ETH </h3>
-				</div>
+		<>
+			<Head>
+				<title>NTFs supersonicos Collections</title>
+			</Head>
 
-				<TitleImage>{nftItem.name}</TitleImage>
-				<button
-					onClick={() => {
-						Router.push({
-							pathname: `/assets/${nftItem.id}`,
-							query: { isListed: isListed },
-						});
-					}}
-				>
-					Comprar NFT
-				</button>
-			</Containe__IMG>
-		</Container>
+			
+			<Container>
+				<Containe__IMG>
+					<Image
+						src={nftItem.image}
+						alt="NFT"
+						width={100}
+						height={100}
+					/>
+					<div>
+						<h2>Preço</h2>
+						<h3>{price} ETH </h3>
+					</div>
+
+					<TitleImage>{nftItem.name}</TitleImage>
+					<button
+						onClick={() => {
+							Router.push({
+								pathname: `/nfts/${nftItem.id}`,
+								query: { isListed: isListed },
+							});
+						}}
+					>
+						Comprar NFT
+					</button>
+				</Containe__IMG>
+			</Container>
+		</>
 	);
 }
 
@@ -114,8 +131,8 @@ export const Containe__IMG = styled.div`
 	button {
 		position: absolute;
 		bottom: 20px;
-    cursor: pointer;
-    border: none;
+		cursor: pointer;
+		border: none;
 
 		width: 182px;
 		height: 46.84px;
