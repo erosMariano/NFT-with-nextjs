@@ -14,7 +14,6 @@ export const MainHome = styled.main`
 export const HomeContainer = styled.section`
 	padding-top: 50px;
 	padding-bottom: 50px;
-
 `;
 
 export const HomeContainer__Header = styled.h1`
@@ -27,6 +26,10 @@ export const HomeContainer__Header = styled.h1`
 		margin-left: 8px;
 		font-size: 16px;
 		letter-spacing: 5px;
+	}
+
+	@media (max-width: 1550px) {
+		margin-bottom: 50px;
 	}
 `;
 
@@ -67,6 +70,16 @@ export const HomeContainer__TitleContainer = styled.div`
 		margin-top: 68px;
 		font-family: Roboto;
 		width: 650px;
+	}
+
+	@media (max-width: 1550px) {
+		h2{
+			font-size: 50px
+		}
+
+		p{
+			margin-top: 30px;
+		}
 	}
 `;
 
