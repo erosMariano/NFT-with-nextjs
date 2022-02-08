@@ -5,7 +5,7 @@ import React from "react";
 import styled from "styled-components";
 import GeneralDetails from "./GeneralDetails";
 
-function NFTImage({ selectedNft }) {
+function NFTImage({ selectedNft, isListed, listings, marketPlaceModule }) {
 	return (
 		<Container>
 			<Link href="/" passHref>
@@ -25,7 +25,12 @@ function NFTImage({ selectedNft }) {
 					<img src={selectedNft?.image} alt={selectedNft?.name} />
 				</ContainerImg>
 
-				<GeneralDetails selectedNft={selectedNft} />
+				<GeneralDetails
+					selectedNft={selectedNft}
+					isListed={isListed}
+					listings={listings}
+					marketPlaceModule={marketPlaceModule}
+				/>
 			</ContainerNFT>
 		</Container>
 	);
@@ -57,8 +62,13 @@ export const HomeContainer__Header = styled.h1`
 	}
 
 	@media (max-width: 1550px) {
+		margin-top: 50px;
 		margin-bottom: 50px;
+		padding-left: 30px;
+		padding-right: 30px;
 	}
+
+
 `;
 
 export const ContainerImg = styled.div`
@@ -77,12 +87,23 @@ export const ContainerImg = styled.div`
 	z-index: 12;
 	img {
 		width: 100%;
+		height: inherit;
+		object-fit: contain;
 	}
 
 	position: relative;
 `;
 
 export const ContainerNFT = styled.div`
+	display: flex;
 
-display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@media (max-width: 1550px) {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+
+
 `;

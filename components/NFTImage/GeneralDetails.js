@@ -4,8 +4,9 @@ import styled from "styled-components";
 import { ThirdwebSDK } from "@3rdweb/sdk";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import toast, { Toaster } from "react-hot-toast";
 
-function GeneralDetails({ selectedNft }) {
+function GeneralDetails({ isListed, selectedNft }) {
 	const [newHora, setNewHora] = useState(24);
 	const [newMinute, setNewMinute] = useState(10);
 	const [newSecond, setNewSecond] = useState(4);
@@ -44,8 +45,71 @@ function GeneralDetails({ selectedNft }) {
 		}
 	}, [listings, selectedNft?.id]);
 
+	const [selectedMarketNft, setSelectedMarketNft] = useState();
+	const [enableButton, setEnableButton] = useState(false);
+
+	useEffect(() => {
+		if (!listings || isListed === "false") return;
+		(async () => {
+			setSelectedMarketNft(
+				listings.find(
+					(marketNft) => marketNft.asset?.id === selectedNft.id
+				)
+			);
+		})();
+	}, [selectedNft, listings, isListed]);
+
+	useEffect(() => {
+		if (!selectedMarketNft || !selectedNft) return;
+
+		setEnableButton(true);
+	}, [selectedMarketNft, selectedNft]);
+
+	const confirmPurchase = (toastHandler = toast) =>
+		toastHandler.success(`Compra confirmada!`, {
+			style: {
+				background: "#04111d",
+				color: "#fff",
+			},
+		});
+
+	const cancelPurchase = (toastHandler = toast) =>
+		toastHandler.error(`Saldo insuficiente!`, {
+			style: {
+				background: "#000",
+				color: "#fff",
+			},
+		});
+
+	const buyItem = async (
+		listingId = selectedMarketNft.id,
+		quantityDesired = 1,
+		module = marketPlaceModule
+	) => {
+		console.log(listingId, quantityDesired, module, "david");
+		// yo RAZA lets goooo!!!
+		//yo Qazi, ok
+		// sure okay about to run it...
+		// just clicked buy now...
+		// still error
+		// where can i see the contract address of the marketplace module
+		// in [nftId.js]
+
+		try {
+			await module.buyoutDirectListing({
+				listingId: listingId,
+				quantityDesired: quantityDesired,
+			});
+			confirmPurchase();
+		} catch (error) {
+			console.error("Entreii", error);
+			cancelPurchase();
+		}
+	};
+
 	return (
 		<Container>
+			<Toaster position="top-center" reverseOrder={false} />
 			<h3>NFTS supersonicos</h3>
 			<h2>{selectedNft?.name || <Skeleton baseColor="#6C6C6C" />}</h2>
 
@@ -78,7 +142,13 @@ function GeneralDetails({ selectedNft }) {
 					</ContainerTime>
 				</Time>
 			</Price>
-			<Button>Comprar NFT supersonico!</Button>
+			<Button
+				onClick={() => {
+					enableButton ? buyItem(selectedMarketNft.id, 1) : null;
+				}}
+			>
+				Comprar NFT supersonico!
+			</Button>
 		</Container>
 	);
 }
@@ -95,6 +165,13 @@ export const Container = styled.aside`
 		font-size: 48px;
 		color: #fff;
 		margin-top: 20px;
+	}
+
+	@media (max-width: 1300px) {
+		h2 {
+			font-size: 38px;
+			width: 100%;
+		}
 	}
 `;
 
@@ -137,6 +214,15 @@ export const Time = styled.div`
 		bottom: 60px;
 		left: -110px;
 		border-radius: 10px;
+	}
+
+	@media (max-width: 1300px) {
+		margin-left: 50px;
+
+		&::before {
+			left: -78px;
+			top: 58px;
+		}
 	}
 `;
 
@@ -187,3 +273,6 @@ export const Button = styled.button`
 			drop-shadow(0px 2px 12px rgba(206, 47, 222, 0.69));
 	}
 `;
+
+
+// 1217

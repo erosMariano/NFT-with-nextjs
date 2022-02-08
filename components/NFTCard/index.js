@@ -80,6 +80,11 @@ export const Container = styled.div`
 	position: relative;
 
 	height: 300px;
+
+	
+	@media (max-width: 500px) {
+		width: 100%;
+	}
 `;
 
 export const Containe__IMG = styled.div`
@@ -118,10 +123,12 @@ export const Containe__IMG = styled.div`
 		}
 		backdrop-filter: blur(26px);
 		width: 95%;
+
 	}
 
 	img {
 		background: rgba(0, 0, 0, 0.3);
+		object-fit: contain;
 	}
 
 	.eth-logo {
@@ -160,6 +167,8 @@ export const Containe__IMG = styled.div`
 				drop-shadow(0px 2px 12px rgba(206, 47, 222, 0.69));
 		}
 	}
+
+
 `;
 
 export const TitleImage = styled.h2`

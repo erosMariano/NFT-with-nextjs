@@ -12,6 +12,7 @@ import Image from "next/image";
 
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import Creator from "../../components/Creator";
 
 function Collection() {
 	//Connect ======================================
@@ -149,9 +150,21 @@ function Collection() {
 								}
 							>
 								<h2>Criar seu NFT Supersonico!</h2>
-								<Link href="/">Criar</Link>
+								<Link
+									href="https://readyplayer.me/pt"
+									target="_blank"
+								>
+									Criar
+								</Link>
 							</ContainerBanner>
-
+							<Creator
+								nameCreator={collection?.creator}
+								image={collection?.imageUrl}
+								position="initial"
+								width={"100%"}
+								display="none"
+								displayResponsive={"flex"}
+							/>
 							<CollectionMain__NFTS_FLEX>
 								{nfts.map((nftItem, id) => {
 									return (
@@ -166,40 +179,14 @@ function Collection() {
 							</CollectionMain__NFTS_FLEX>
 						</CollectionMain__NFTS>
 
-						<CollectionMain__Creator>
-							<CollectionMain_Creator__AuthorIMG>
-								<Image
-									width={200}
-									height={200}
-									src={
-										collection?.imageUrl ? (
-											collection.imageUrl
-										) : "https://via.placeholder.com/200"
-									}
-									alt="Perfil usuário NFT"
-								/>
-							</CollectionMain_Creator__AuthorIMG>
-							<h2>{collection?.creator}</h2>
-
-							<CollectionMain__Creator__Buttons>
-								<div className="follow">Follow</div>
-
-								<div className="like">
-									<Image
-										width={20}
-										height={20}
-										src="/images/icons/like.svg"
-										alt="Perfil usuário NFT"
-									/>
-								</div>
-
-								<div className="reticencias">
-									<span></span>
-									<span></span>
-									<span></span>
-								</div>
-							</CollectionMain__Creator__Buttons>
-						</CollectionMain__Creator>
+						<Creator
+							nameCreator={collection?.creator}
+							image={collection?.imageUrl}
+							display="flex"
+							position="fixed"
+							width={"20%"}
+							displayResponsive={"none"}
+						/>
 					</MaxContainer>
 				</>
 			) : (
@@ -223,6 +210,10 @@ export const CollectionMain = styled.main`
 	background-color: #131129;
 	position: relative;
 	padding-top: 40px;
+	@media (max-width: 1500px) {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
 `;
 export const ContainerButtonCollection = styled.div`
 	display: flex;
@@ -320,6 +311,9 @@ export const MaxContainer = styled.div`
 
 export const CollectionMain__NFTS = styled.div`
 	width: 70%;
+	@media (max-width: 1055px) {
+		width: 100%;
+	}
 `;
 
 export const ContainerBanner = styled.div`
@@ -365,77 +359,28 @@ export const ContainerBanner = styled.div`
 		);
 		text-decoration: none;
 	}
-`;
 
-export const CollectionMain__Creator = styled.div`
-	position: fixed;
-	right: 5%;
-	background: rgba(255, 255, 255, 0.1);
-	width: 20%;
-	border-radius: 5px;
-	flex-direction: column;
-	display: flex;
-	color: #fff;
-	padding-top: 30px;
-	padding-bottom: 30px;
-	h2 {
-		font-family: "Righteous", cursive;
-		padding-top: 24px;
-		text-align: center;
-
-		display: flex;
-		justify-content: center;
-	}
-`;
-
-export const CollectionMain_Creator__AuthorIMG = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	img {
-		border-radius: 100%;
-	}
-`;
-
-export const CollectionMain__Creator__Buttons = styled.div`
-	padding-top: 30px;
-	.follow {
-		background: #f0187a;
-		padding: 10px 20px;
-		border-radius: 20px;
+	@media (max-width: 1055px) {
+		margin-bottom: 20px;
 	}
 
-	.like,
-	.reticencias {
-		background: rgba(255, 255, 255, 0.1);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 10px 10px;
-		border-radius: 50%;
+	@media (max-width: 1055px) {
+		h2 {
+			width: 100%;
+			font-size: 35px;
+		}
+
+		padding: 16px;
 	}
-	.reticencias {
-		height: 40px;
-		width: 40px;
-	}
-	.reticencias span {
-		width: 5px;
-		height: 5px;
-		background: rgba(255, 255, 255, 0.2);
-		border-radius: 50%;
-		margin: 1px;
-	}
-	width: 200px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	margin: 0 auto;
 `;
 
 export const CollectionMain__NFTS_FLEX = styled.div`
 	display: flex;
 	justify-content: flex-start;
 	flex-wrap: wrap;
+	@media (max-width: 1055px) {
+		justify-content: space-between;
+	}
 `;
 
 export const HomeContainer__Header = styled.h1`

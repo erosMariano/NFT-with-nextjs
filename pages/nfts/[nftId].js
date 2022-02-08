@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import NFTImage from "../../components/NFTImage/NFTImage";
 import styled from "styled-components";
 import Head from "next/head";
-import MakeOffer from "../../components/NFTImage/Purchase";
 
 function NFT() {
 	const { provider } = useWeb3();
@@ -64,15 +63,14 @@ function NFT() {
 				<title>NFT supersonico</title>
 			</Head>
 			<Container>
-				<NFTImage selectedNft={selectedNft}></NFTImage>
+				<NFTImage
+					selectedNft={selectedNft}
+					isListed={router.query.isListed}
+					listings={listings}
+					marketPlaceModule={marketPlaceModule}
+				></NFTImage>
 			</Container>
 
-			<MakeOffer
-				isListed={router.query.isListed}
-				selectedNft={selectedNft}
-				listings={listings}
-				marketPlaceModule={marketPlaceModule}
-			/>
 		</>
 	);
 }
