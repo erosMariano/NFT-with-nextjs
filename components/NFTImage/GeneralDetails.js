@@ -87,13 +87,6 @@ function GeneralDetails({ isListed, selectedNft }) {
 		module = marketPlaceModule
 	) => {
 		console.log(listingId, quantityDesired, module, "david");
-		// yo RAZA lets goooo!!!
-		//yo Qazi, ok
-		// sure okay about to run it...
-		// just clicked buy now...
-		// still error
-		// where can i see the contract address of the marketplace module
-		// in [nftId.js]
 
 		try {
 			await module.buyoutDirectListing({
@@ -173,6 +166,18 @@ export const Container = styled.aside`
 			width: 100%;
 		}
 	}
+
+	@media (max-width: 1229px) {
+		margin-left: 0px;
+		margin-top: 40px;
+	}
+	padding-bottom: 50px;
+
+	@media(max-width: 625px){
+		h2{
+			font-size: 29px;
+		}
+	}
 `;
 
 export const Price = styled.div`
@@ -186,6 +191,14 @@ export const Price = styled.div`
 	h2 {
 		margin-top: 10px;
 		margin-bottom: 10px;
+	}
+
+	@media (max-width: 1229px) {
+		margin-top: 50px;
+	}
+
+	@media (max-width: 625px) {
+		flex-direction: column;
 	}
 `;
 
@@ -222,6 +235,24 @@ export const Time = styled.div`
 		&::before {
 			left: -78px;
 			top: 58px;
+		}
+	}
+
+	@media (max-width: 625px) {
+		flex-direction: column;
+		margin-left: 0px;
+
+		&::before {
+			background: none;
+		}
+
+		div {
+			margin-top: 20px;
+		}
+
+		> p {
+			position: absolute;
+			top: 49px;
 		}
 	}
 `;
@@ -272,7 +303,13 @@ export const Button = styled.button`
 		filter: drop-shadow(0px 1px 10px rgba(91, 115, 228, 0.77))
 			drop-shadow(0px 2px 12px rgba(206, 47, 222, 0.69));
 	}
+
+	@media (max-width: 1229px) {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	@media (max-width: 625px) {
+		margin-top: 70px;
+	} 
 `;
-
-
-// 1217

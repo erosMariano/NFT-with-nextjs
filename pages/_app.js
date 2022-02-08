@@ -1,5 +1,6 @@
 import { GlobalStyle } from "../styles/globals";
 import { ThirdwebWeb3Provider } from "@3rdweb/hooks";
+import NextNprogress from "nextjs-progressbar";
 
 const supportedChainIds = [4];
 const connectors = {
@@ -13,6 +14,7 @@ function MyApp({ Component, pageProps }) {
 			connectors={connectors}
 		>
 			<GlobalStyle />
+			<NextNprogress color="#534AB5" />
 			<Component {...pageProps} />
 		</ThirdwebWeb3Provider>
 	);

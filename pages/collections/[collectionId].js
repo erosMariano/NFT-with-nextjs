@@ -13,37 +13,12 @@ import Image from "next/image";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import Creator from "../../components/Creator";
+import Head from "next/head";
 
 function Collection() {
 	//Connect ======================================
 	const { address, connectWallet } = useWeb3();
 
-	const welcomeUser = (userName, toastHandler = toast) => {
-		toastHandler.success(
-			`Bem vindo de volta${userName !== "Unnamed" ? ` ${userName}` : ""}`
-		),
-			{
-				style: {
-					background: "#04111d",
-					color: "#fff",
-				},
-			};
-	};
-	const marketPlaceModule = useEffect(() => {
-		if (!address) return;
-
-		(async () => {
-			const userDoc = {
-				_type: "users",
-				_id: address,
-				userName: "Unnamed",
-				walletAddress: address,
-			};
-
-			const result = await client.createIfNotExists(userDoc);
-			//welcomeUser(result.userName);
-		})();
-	}, [address]);
 
 	//Connect ======================================
 	const router = useRouter();
@@ -191,6 +166,9 @@ function Collection() {
 				</>
 			) : (
 				<ContainerButtonCollection>
+					<Head>
+						<title>NFTs supersonicos Collection </title>
+					</Head>
 					<CollectionMain__Button
 						onClick={() => connectWallet("injected")}
 					>

@@ -15,7 +15,6 @@ import {
 } from "../styles/style";
 
 export default function Home() {
-
 	const [tiltWidth, setTiltWidth] = useState(541);
 
 	useEffect(() => {

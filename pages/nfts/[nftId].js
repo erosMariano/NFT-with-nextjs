@@ -8,6 +8,8 @@ import styled from "styled-components";
 import Head from "next/head";
 
 function NFT() {
+	const { address, connectWallet } = useWeb3();
+
 	const { provider } = useWeb3();
 	const [selectedNft, setSelectedNft] = useState();
 	const [listings, setListings] = useState([]);
@@ -62,15 +64,29 @@ function NFT() {
 			<Head>
 				<title>NFT supersonico</title>
 			</Head>
-			<Container>
-				<NFTImage
-					selectedNft={selectedNft}
-					isListed={router.query.isListed}
-					listings={listings}
-					marketPlaceModule={marketPlaceModule}
-				></NFTImage>
-			</Container>
-
+			{address ? (
+				<>
+					<Container>
+						<NFTImage
+							selectedNft={selectedNft}
+							isListed={router.query.isListed}
+							listings={listings}
+							marketPlaceModule={marketPlaceModule}
+						></NFTImage>
+					</Container>
+				</>
+			) : (
+				<ContainerButtonCollection>
+					<Head>
+						<title>NFT supersonico</title>
+					</Head>
+					<CollectionMain__Button
+						onClick={() => connectWallet("injected")}
+					>
+						Conectar Metamask
+					</CollectionMain__Button>
+				</ContainerButtonCollection>
+			)}
 		</>
 	);
 }
@@ -84,4 +100,90 @@ export const Container = styled.main`
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+`;
+
+export const ContainerButtonCollection = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	background: #131129;
+`;
+
+export const CollectionMain__Button = styled.button`
+	width: 182px;
+	height: 50px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+	font-family: Roboto;
+	font-weight: bold;
+	font-size: 12.8976px;
+	line-height: 15px;
+
+	color: #ffffff;
+	border: none;
+	margin-top: 40px;
+
+	background: linear-gradient(
+		87.66deg,
+		#ff41d5 0.61%,
+		#ad23e4 23.06%,
+		#8031e8 54.46%,
+		#6c54e6 76.49%,
+		#3da7e1 98.66%
+	);
+	border-radius: 2px;
+	cursor: pointer;
+
+	position: relative;
+
+	&::before {
+		content: "";
+		width: 20px;
+		height: 20px;
+		position: absolute;
+
+		bottom: 16px;
+		left: -12px;
+		background: #131129;
+		transform: rotate(45deg);
+	}
+
+	&::after {
+		content: "";
+		width: 20px;
+		height: 20px;
+		position: absolute;
+
+		bottom: 16px;
+		left: -30px;
+		border-radius: 2px;
+		background: linear-gradient(
+			87.66deg,
+			#ff41d5 0.61%,
+			#ad23e4 23.06%,
+			#8031e8 54.46%,
+			#6c54e6 76.49%,
+			#3da7e1 98.66%
+		);
+		animation: animationSquare 2s ease-in-out infinite;
+		transform: rotate(45deg);
+	}
+
+	@keyframes animationSquare {
+		0% {
+			/*transform: translateX(-15px);*/
+			left: -40px;
+		}
+		50% {
+			/* transform: translateX(0); */
+			left: -20px;
+		}
+		100% {
+			/* transform: translateX(-15px); */
+			left: -40px;
+		}
+	}
 `;

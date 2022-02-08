@@ -52,9 +52,8 @@ export const HomeContainer__Header = styled.h1`
 	margin-bottom: 100px;
 
 	cursor: pointer;
-	max-width: 1500px;
-	margin-left: auto;
-	margin-right: auto;
+	max-width: fit-content;
+
 	p {
 		margin-left: 8px;
 		font-size: 16px;
@@ -67,8 +66,6 @@ export const HomeContainer__Header = styled.h1`
 		padding-left: 30px;
 		padding-right: 30px;
 	}
-
-
 `;
 
 export const ContainerImg = styled.div`
@@ -79,6 +76,8 @@ export const ContainerImg = styled.div`
 		#999afa 68.61%,
 		#6a67e8 106.7%
 	);
+	outline: none;
+	border: none;
 	width: 600px;
 	height: 600px;
 
@@ -92,6 +91,11 @@ export const ContainerImg = styled.div`
 	}
 
 	position: relative;
+
+	@media(max-width: 625px){
+		width: 300px;
+		height: 300px;
+	}
 `;
 
 export const ContainerNFT = styled.div`
@@ -105,5 +109,7 @@ export const ContainerNFT = styled.div`
 		padding-right: 30px;
 	}
 
-
+	@media (max-width: 1229px) {
+		flex-direction: column;
+	}
 `;

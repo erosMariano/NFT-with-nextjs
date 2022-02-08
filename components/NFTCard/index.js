@@ -1,14 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-
-
-import Skeleton from "react-loading-skeleton";
 import styled from "styled-components";
-
-
 
 function NFTCard({ nftItem, listings }) {
 	const [isListed, setIsListed] = useState(false);
@@ -33,7 +27,6 @@ function NFTCard({ nftItem, listings }) {
 				<title>NTFs supersonicos Collections</title>
 			</Head>
 
-			
 			<Container>
 				<Containe__IMG>
 					<Image
@@ -81,7 +74,6 @@ export const Container = styled.div`
 
 	height: 300px;
 
-	
 	@media (max-width: 500px) {
 		width: 100%;
 	}
@@ -123,7 +115,6 @@ export const Containe__IMG = styled.div`
 		}
 		backdrop-filter: blur(26px);
 		width: 95%;
-
 	}
 
 	img {
@@ -167,8 +158,6 @@ export const Containe__IMG = styled.div`
 				drop-shadow(0px 2px 12px rgba(206, 47, 222, 0.69));
 		}
 	}
-
-
 `;
 
 export const TitleImage = styled.h2`
