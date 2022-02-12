@@ -1,34 +1,98 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Projeto NFT com NEXTJS
+<h1 align="center">
 
-## Getting Started
+<img src="./public/images/imagensGithub/desktopIMageGit1.png" />
 
-First, run the development server:
+</h1>
 
-```bash
-npm run dev
-# or
-yarn dev
+<h4 align="center"> 🚀Desafio feito com o intuito de praticar a nova era da web 3.0, blockchain e NFT's🚀 </h4>
+
+##  💻 Sobre o projeto
+
+  
+🔧O projeto foi desenvolvido com nextJs, sanity.io e thirdweb
+
+  
+
+##  🎨 Layout
+
+</a>
+
+<br>
+</a>
+
+###  Mobile
+
+<p style="display: flex; align-items: flex-start; justify-content: center;">
+<img src="./public/images/imagensGithub/mobileIMageGit1.png" width="200px" style="margin-bottom: 20px">
+<img src="./public/images/imagensGithub/mobileIMageGit2.png" width="200px" style="margin-bottom: 20px">
+<img src="./public/images/imagensGithub/mobileIMageGit3.png" width="200px" style="margin-bottom: 20px">
+<img src="./public/images/imagensGithub/mobileIMageGit4.png" width="200px" style="margin-bottom: 20px">
+<img src="./public/images/imagensGithub/mobileIMageGit5.png" width="200px" style="margin-bottom: 20px">
+
+<img src="./public/images/imagensGithub/mobileIMageGit6.png" width="200px" style="margin-bottom: 20px">
+<img src="./public/images/imagensGithub/mobileIMageGit7.png" width="200px" style="margin-bottom: 20px">
+<img src="./public/images/imagensGithub/mobileIMageGit8.png" width="200px" style="margin-bottom: 20px">
+
+</p>
+
+###  Web
+
+  
+
+<p align="center" style="display: flex; align-items: flex-start; justify-content: center;" style="margin: 20px">
+
+<img src="./public/images/imagensGithub/desktopIMageGit2.png" width="100%" style="margin: 20px">
+<img src="./public/images/imagensGithub/desktopIMageGit3.png" width="100%" style="margin: 20px">
+<img src="./public/images/imagensGithub/desktopIMageGit4.png" width="100%" style="margin: 20px">
+<img src="./public/images/imagensGithub/desktopIMageGit5.png" width="100%" style="margin: 20px">
+
+</p>
+
+
+##  🛠 Tecnologias
+  
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+  
+
+- [NextJs](https://nextjs.org/)
+
+- [Styled-components](https://getbootstrap.com/)
+
+- [Thirdweb](https://thirdweb.com/)
+
+- [Sanity.io](https://www.sanity.io/)
+
+  
+##  🚀 Como executar o projeto
+
+  
+<p>O primeiro passo é fazer o download do repositório para a sua máquina</p>
+<p>Criar um projeto no sanity io e preencher os seguintes campos no .env.local</p>
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+NEXT_PUBLIC_PROJECT_ID_SANITY=
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+NEXT_PUBLIC_TOKEN_SANITY=
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+npm install -g @sanity/cli && sanity init
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+cd pasta_crida_sanity
 
-## Learn More
+yarn 
+yarn start
+```
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<p>Para rodar o projeto do next</p>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+yarn 
+yarn start
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Feito com 💚 por Eros Mariano 👋🏽 [Entre em contato!](https://www.linkedin.com/in/erosmariano/)
+  
