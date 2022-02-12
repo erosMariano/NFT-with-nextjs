@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContainerCard = styled.aside`
 	background-image: url("/images/background-card.png");
-	background-repeat: no-repeat
+	background-repeat: no-repeat;
 	height: 100vh;
 	width: 50%;
 	background-size: auto;
@@ -88,25 +88,25 @@ export const ContainerCard__Monkeys = styled.div`
 	> span:nth-child(1) {
 		position: relative;
 		bottom: 40px;
-		left: 20px;
+		left: -40px;
 		z-index: 100;
 	}
 	> span:nth-child(2) {
 		position: relative;
 		bottom: 40px;
-		left: 0px;
+		left: -60px;
 		z-index: 100;
 	}
 	> span:nth-child(3) {
 		position: relative;
 		bottom: 40px;
-		left: -20px;
+		left: -80px;
 		z-index: 100;
 	}
 	> span:nth-child(4) {
 		position: relative;
 		bottom: 40px;
-		left: -40px;
+		left: -100px;
 		z-index: 100;
 	}
 
