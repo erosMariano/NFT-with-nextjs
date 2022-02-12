@@ -103,14 +103,14 @@ export const Containe__IMG = styled.div`
 			display: flex;
 
 			position: relative;
-			left: -30px;
+			left: 0px;
 			&::after {
-				content: url("/images/etherium.svg");
+				/* content: url("/images/etherium.svg");
 				width: 24px;
 				height: 24px;
 				position: absolute;
 				left: 65px;
-				top: -8px;
+				top: -8px; */
 			}
 		}
 		backdrop-filter: blur(26px);
