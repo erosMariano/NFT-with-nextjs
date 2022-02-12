@@ -14,7 +14,7 @@ function NFTImage({ selectedNft, isListed, listings, marketPlaceModule }) {
 						src="/images/icons/logo.svg"
 						width={50}
 						height={50}
-						alt="Logo supersonic"
+						alt="Logo supersonic" 
 					/>
 					<p>NFTSONIC</p>
 				</HomeContainer__Header>

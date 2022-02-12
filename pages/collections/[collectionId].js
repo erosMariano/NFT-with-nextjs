@@ -57,7 +57,7 @@ function Collection() {
 			"https://eth-rinkeby.alchemyapi.io/v2/MVETExL6KHr1BJ3ERWxVeuoOIergM1bd"
 		);
 		return sdk.getMarketplaceModule(
-			"0x622d7659d155b1c6EDF84D436bCC07d2704d4D72"
+			"0x1302ef4095DEBf6F255844917EDb706F7E44E986"
 		);
 	}, [provider]);
 
@@ -310,6 +310,7 @@ export const ContainerBanner = styled.div`
 	justify-content: center;
 	padding-top: 30px;
 	padding-bottom: 30px;
+	background-position: center;
 	h2 {
 		font-family: "Righteous", cursive;
 		color: #fff;

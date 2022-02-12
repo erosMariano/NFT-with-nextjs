@@ -13,7 +13,7 @@ function GeneralDetails({ isListed, selectedNft }) {
 
 	const [listings, setListings] = useState([]);
 	const { provider } = useWeb3();
-	const [price, setPrice] = useState(0);
+	const [price, setPrice] = useState(0); 
 
 	const marketPlaceModule = useMemo(() => {
 		if (!provider) return;
@@ -23,7 +23,7 @@ function GeneralDetails({ isListed, selectedNft }) {
 			"https://eth-rinkeby.alchemyapi.io/v2/MVETExL6KHr1BJ3ERWxVeuoOIergM1bd"
 		);
 		return sdk.getMarketplaceModule(
-			"0x622d7659d155b1c6EDF84D436bCC07d2704d4D72"
+			"0x1302ef4095DEBf6F255844917EDb706F7E44E986"
 		);
 	}, [provider]);
 
@@ -100,6 +100,16 @@ function GeneralDetails({ isListed, selectedNft }) {
 		}
 	};
 
+	const [nftExists, setNftExists] = useState();
+
+	useEffect(() => {
+		if(isListed == "false"){
+			setNftExists(false);
+		}else{
+			setNftExists(true);
+		}
+	}, [isListed])
+
 	return (
 		<Container>
 			<Toaster position="top-center" reverseOrder={false} />
@@ -135,13 +145,16 @@ function GeneralDetails({ isListed, selectedNft }) {
 					</ContainerTime>
 				</Time>
 			</Price>
-			<Button
+			{nftExists ? (<Button
 				onClick={() => {
 					enableButton ? buyItem(selectedMarketNft.id, 1) : null;
 				}}
 			>
 				Comprar NFT supersonico!
-			</Button>
+			</Button>):  <Button>NFT Indisponível</Button>}
+
+
+
 		</Container>
 	);
 }

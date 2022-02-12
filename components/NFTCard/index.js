@@ -30,7 +30,7 @@ function NFTCard({ nftItem, listings }) {
 			<Container>
 				<Containe__IMG>
 					<Image
-						src={nftItem.image}
+						src={nftItem.image} 
 						alt="NFT"
 						width={100}
 						height={100}

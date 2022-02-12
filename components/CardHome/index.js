@@ -12,7 +12,7 @@ function CardHome() {
 	return (
 		<ContainerCard>
 			<ContainerCard__Button>
-				<Link href="/collections/0x41f1bFaDDd69b6655ad4909C37E68A1b488f4400">
+				<Link href="/collections/0xE76b59Eb0C66b701043b89144a3dA8c0c50125aA">
 					<a>Ver coleção</a>
 				</Link>
 			</ContainerCard__Button>

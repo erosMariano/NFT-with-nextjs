@@ -86,6 +86,7 @@ export const CollectionMain_Creator__AuthorIMG = styled.div`
 	justify-content: center;
 	img {
 		border-radius: 100%;
+		object-fit: cover;
 	}
 `;
 

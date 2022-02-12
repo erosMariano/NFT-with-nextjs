@@ -56,7 +56,7 @@ export default function Home() {
 				</HomeContainer__TitleContainer>
 
 				<Link
-					href="/collections/0x41f1bFaDDd69b6655ad4909C37E68A1b488f4400"
+					href="/collections/0xE76b59Eb0C66b701043b89144a3dA8c0c50125aA"
 					passHref
 					style={{ cursor: "pointer" }}
 				>

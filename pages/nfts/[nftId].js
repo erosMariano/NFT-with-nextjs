@@ -6,15 +6,32 @@ import { useRouter } from "next/router";
 import NFTImage from "../../components/NFTImage/NFTImage";
 import styled from "styled-components";
 import Head from "next/head";
-
+import {client} from "../../lib/sanityClient"
 function NFT() {
+
+	
 	const { address, connectWallet } = useWeb3();
 
+	useEffect(() => {
+		if(!address) return;
+		(async() =>{
+			const userDoc ={
+				_type: "users",
+				_id: address,
+				userName: "Unnamed",
+				walletAddress: address
+			}
+
+			const result = await client.createIfNotExists(userDoc)
+		})
+	},)
+
+	
 	const { provider } = useWeb3();
 	const [selectedNft, setSelectedNft] = useState();
 	const [listings, setListings] = useState([]);
 	const router = useRouter();
-
+ 
 	const nftModule = useMemo(() => {
 		if (!provider) return;
 
@@ -23,7 +40,7 @@ function NFT() {
 			"https://eth-rinkeby.alchemyapi.io/v2/MVETExL6KHr1BJ3ERWxVeuoOIergM1bd"
 		);
 
-		return sdk.getNFTModule("0x41f1bFaDDd69b6655ad4909C37E68A1b488f4400");
+		return sdk.getNFTModule("0xE76b59Eb0C66b701043b89144a3dA8c0c50125aA");
 	}, [provider]);
 
 	useEffect(() => {
@@ -48,7 +65,7 @@ function NFT() {
 			"https://eth-rinkeby.alchemyapi.io/v2/MVETExL6KHr1BJ3ERWxVeuoOIergM1bd"
 		);
 		return sdk.getMarketplaceModule(
-			"0x622d7659d155b1c6EDF84D436bCC07d2704d4D72"
+			"0x1302ef4095DEBf6F255844917EDb706F7E44E986"
 		);
 	}, [provider]);
 
@@ -100,6 +117,7 @@ export const Container = styled.main`
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	padding-bottom: 50px;
 `;
 
 export const ContainerButtonCollection = styled.div`
