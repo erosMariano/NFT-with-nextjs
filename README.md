@@ -91,7 +91,7 @@ yarn start
 
 ```
 yarn 
-yarn start
+yarn dev
 ```
 
 Feito com 💚 por Eros Mariano 👋🏽 [Entre em contato!](https://www.linkedin.com/in/erosmariano/)
